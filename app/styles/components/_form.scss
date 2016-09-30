@@ -1,0 +1,12 @@
+.app__form {
+  &__actions {
+    border-top: 0.1rem solid $brand-primary;
+    margin-top: $grid-gutter-width;
+    padding-top: $grid-gutter-width / 2;
+
+    button:not(:first-child) {
+      display: inline-block;
+      margin-left: $grid-gutter-width / 3;
+    }
+  }
+}

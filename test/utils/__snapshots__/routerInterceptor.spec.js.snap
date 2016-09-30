@@ -1,0 +1,31 @@
+exports[`routerInterceptor with anon user checkStatus should dispatch an goTo \`/login\` action 1`] = `
+Object {
+  "payload": Object {
+    "args": Array [
+      Object {
+        "pathname": "/login",
+        "search": undefined,
+        "state": undefined
+      }
+    ],
+    "method": "push"
+  },
+  "type": "@@router/CALL_HISTORY_METHOD"
+}
+`;
+
+exports[`routerInterceptor with logged user checkStatus should redirect to /cms 1`] = `
+Object {
+  "payload": Object {
+    "args": Array [
+      Object {
+        "pathname": "/cms",
+        "search": undefined,
+        "state": undefined
+      }
+    ],
+    "method": "push"
+  },
+  "type": "@@router/CALL_HISTORY_METHOD"
+}
+`;

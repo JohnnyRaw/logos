@@ -1,0 +1,1 @@
+exports[`Items should render properly 1`] = `"<div class=\"app__items app__route\"></div>"`;

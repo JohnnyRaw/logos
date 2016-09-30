@@ -1,0 +1,77 @@
+.app__cms {
+  &__img {
+    align-items: center;
+    display: flex;
+    height: 10rem;
+    justify-content: center;
+    width: 10rem;
+
+    a {
+      display: block;
+    }
+
+    img {
+      max-height: 10rem;
+    }
+  }
+
+  &__files {
+    a {
+      color: #999;
+      display: block;
+    }
+  }
+
+  &__tags,
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      background-color: lighten($brand-primary, 45);
+      border: 0.1rem solid lighten($brand-primary, 40);
+      border-radius: 0.2rem;
+      color: $brand-primary;
+      display: block;
+      font-size: $font-size-sm;
+      line-height: 1;
+      margin-bottom: $grid-gutter-width / 6;
+      margin-right: $grid-gutter-width / 6;
+      padding: $grid-gutter-width / 6;
+    }
+  }
+
+  &__categories {
+    margin-bottom: $grid-gutter-width / 3;
+
+    a {
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      color: #fff;
+    }
+  }
+
+  &__toolbar {
+    align-items: center;
+    display: flex;
+    margin-bottom: $grid-gutter-width / 3;
+  }
+
+  h4 a {
+    color: $body-color;
+  }
+
+  .footable-header {
+    th:last-of-type {
+      @include ix {
+        width: 10rem;
+      }
+    }
+  }
+  
+  .app__header {
+    a {
+      color: #fff;
+    }
+  }
+}

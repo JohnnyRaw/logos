@@ -1,0 +1,28 @@
+.app__logo {
+  display: inline-block;
+
+  &__large {
+    display: none;
+
+    @include md {
+      display: block;
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    @include md {
+      display: none;
+    }
+  }
+
+  .isvg {
+    line-height: 0;
+
+    svg {
+      height: auto;
+      max-height: 100%;
+    }
+  }
+}

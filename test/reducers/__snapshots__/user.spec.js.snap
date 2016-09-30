@@ -1,0 +1,60 @@
+exports[`User should handle USER_LOGIN_SUCCESS 1`] = `
+Object {
+  "authenticated": false,
+  "credential": Object {},
+  "data": Object {},
+  "isAdmin": false,
+  "ready": true,
+  "rehydrated": false,
+  "running": false
+}
+`;
+
+exports[`User should handle USER_LOGOUT_SUCCESS 1`] = `
+Object {
+  "authenticated": false,
+  "credential": Object {},
+  "data": Object {},
+  "isAdmin": false,
+  "ready": false,
+  "rehydrated": true,
+  "running": false
+}
+`;
+
+exports[`User should handle persist/REHYDRATE with payload 1`] = `
+Object {
+  "authenticated": false,
+  "credential": Object {},
+  "data": Object {},
+  "isAdmin": false,
+  "logged": true,
+  "ready": false,
+  "rehydrated": true,
+  "running": false
+}
+`;
+
+exports[`User should handle persist/REHYDRATE without payload 1`] = `
+Object {
+  "authenticated": false,
+  "credential": Object {},
+  "data": Object {},
+  "isAdmin": false,
+  "ready": false,
+  "rehydrated": true,
+  "running": false
+}
+`;
+
+exports[`User should return the initial state 1`] = `
+Object {
+  "authenticated": false,
+  "credential": Object {},
+  "data": Object {},
+  "isAdmin": false,
+  "ready": false,
+  "rehydrated": false,
+  "running": false
+}
+`;

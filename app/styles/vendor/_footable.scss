@@ -1,0 +1,382 @@
+/*
+* FooTable v3 - FooTable is a jQuery plugin that aims to make HTML tables on smaller devices look awesome.
+* @version 3.0.10
+* @link http://fooplugins.com
+* @copyright Steven Usher & Brad Vincent 2015
+* @license Released under the GPLv3 license.
+*/
+table.footable,
+table.footable-details {
+  border-collapse: collapse;
+  border-spacing: 0;
+  position: relative;
+  width: 100%;
+}
+
+table.footable-details {
+  margin-bottom: 0;
+
+  > tbody > tr > th:nth-child(1) {
+    min-width: 40px;
+    width: 120px;
+  }
+
+  > tbody > tr > td:nth-child(2) {
+    word-break: break-all;
+  }
+
+  > thead > tr:first-child > th,
+  > thead > tr:first-child > td,
+  > tbody > tr:first-child > th,
+  > tbody > tr:first-child > td,
+  > tfoot > tr:first-child > th,
+  > tfoot > tr:first-child > td {
+    border-top-width: 0;
+  }
+}
+
+table.footable {
+  > tbody {
+    > tr {
+      &.footable-empty > td,
+      &.footable-empty > th,
+      &.footable-detail-row > td,
+      &.footable-detail-row > th {
+        display: table-cell;
+      }
+
+      > td,
+      > th {
+        display: none;
+      }
+
+      &.footable-empty > td {
+        font-size: 30px;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      > td > span.footable-toggle {
+        margin-right: 8px;
+        opacity: 0.3;
+
+        &.last-column {
+          float: right;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  > thead {
+    > tr.footable-filtering > th {
+      border-bottom-width: 1px;
+      font-weight: normal;
+      text-align: right;
+
+      .form-group {
+        margin-bottom: 0;
+
+        @include md {
+          margin-left: 2px;
+          margin-right: 2px;
+        }
+
+        + .form-group {
+          margin-left: 2rem;
+          margin-top: 5px;
+
+          @include md {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .input-group {
+        display: inline-flex;
+        width: 100%;
+
+        @include md {
+          width: auto;
+        }
+
+        &-btn .btn-primary {
+          border-bottom-right-radius: $border-radius !important;
+          border-top-right-radius: $border-radius !important;
+          padding-left: $grid-gutter-width / 3;
+          padding-right: $grid-gutter-width / 3;
+        }
+
+        &-btn .btn-default {
+          display: none;
+        }
+      }
+
+      ul.dropdown-menu > li {
+        @extend .dropdown-item;
+
+        > a.checkbox {
+          display: block;
+          margin: 0;
+          position: relative;
+
+          > label {
+            display: block;
+            padding-left: 20px;
+          }
+
+          input[type="checkbox"] {
+            margin-left: -20px;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+
+  > tfoot {
+    > tr.footable-paging > td {
+      text-align: center;
+
+      > ul.pagination {
+        margin: 10px 0 0;
+      }
+
+      > span.label {
+        background-color: #fff;
+        border: 0.1rem solid $brand-primary;
+        margin: 0 0 10px;
+        padding: 4px 10px;
+
+      }
+    }
+  }
+
+  td.footable-sortable,
+  th.footable-sortable {
+    cursor: pointer;
+    padding-right: 30px;
+    position: relative;
+
+    > span.fooicon {
+      margin-top: -7px;
+      opacity: 0;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transition: opacity 0.3s ease-in;
+    }
+
+    &:hover {
+      > span.fooicon {
+        opacity: 1;
+      }
+    }
+
+    &.footable-asc > span.fooicon,
+    &.footable-desc > span.fooicon {
+      opacity: 1;
+    }
+  }
+
+  &.footable-sorting-disabled {
+    th.footable-sortable,
+    td.footable-sortable {
+      &.footable-asc > span.fooicon,
+      &.footable-desc > span.fooicon,
+      &:hover > span.fooicon {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.footable-filtering-right {
+    > thead > tr.footable-filtering > th {
+      text-align: right;
+    }
+  }
+
+  &.footable-filtering-left {
+    > thead > tr.footable-filtering > th {
+      text-align: left;
+    }
+  }
+
+  &.footable-filtering-center {
+    > thead > tr.footable-filtering > th {
+      text-align: center;
+    }
+  }
+
+  &.footable-paging-right {
+    > tfoot > tr.footable-paging > td {
+      text-align: right;
+    }
+  }
+
+  &.footable-paging-left {
+    > tfoot > tr.footable-paging > td {
+      text-align: left;
+    }
+  }
+
+  &.footable-paging-center {
+    > tfoot > tr.footable-paging > td {
+      text-align: center;
+    }
+  }
+
+  &.table-condensed > tbody > tr > td > span.footable-toggle {
+    margin-right: 5px;
+  }
+}
+
+ul.pagination > li.footable-page {
+  display: none;
+}
+
+ul.pagination > li.footable-page.visible {
+  display: inline;
+}
+
+div.footable-loader {
+  height: 300px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+
+  > span.fooicon {
+    animation: fooicon-spin-r 2s infinite linear;
+    display: inline-block;
+    font-size: 30px;
+    height: 32px;
+    left: 50%;
+    line-height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+  }
+}
+
+@keyframes fooicon-spin-r {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.fooicon {
+  content: attr(data-icon);
+  display: inline-block;
+  font-family: 'icon-font-v2' !important;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: 1;
+  position: relative;
+  text-transform: none !important;
+  top: 1px;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  &-loader:before {
+    content: '\f0fe';
+  }
+
+  &-plus:before {
+    content: '\f0f0';
+  }
+
+  &-minus:before {
+    content: '\f0d2';
+  }
+
+  &-search:before {
+    content: '\f105';
+  }
+
+  &-remove:before {
+    content: '\f058';
+  }
+
+  &-sort:before {
+    content: '\f118';
+  }
+
+  &-sort-asc:before {
+    content: '\f11b';
+  }
+
+  &-sort-desc:before {
+    content: '\f11c';
+  }
+
+  &-pencil:before {
+    content: '\f0e2';
+  }
+
+  &-trash:before {
+    content: '\f141';
+  }
+
+  &-eye-close:before {
+    content: '\f07e';
+  }
+
+  &-flash:before {
+    content: '\f02b';
+  }
+
+  &-cog:before {
+    content: '\f05e';
+  }
+}
+
+table.footable-editing {
+  &-right {
+    td.footable-editing,
+    tr.footable-editing {
+      text-align: right;
+    }
+  }
+
+  &-left {
+    td.footable-editing,
+    tr.footable-editing {
+      text-align: left;
+    }
+  }
+
+  &.footable-editing-show button.footable-add,
+  &.footable-editing-show button.footable-hide,
+  &.footable-editing-always-show button.footable-add {
+    display: inline-block;
+  }
+
+  button.footable-add,
+  button.footable-hide,
+  &-show button.footable-show,
+  .footable-editing-always-show button.footable-show,
+  .footable-editing-always-show button.footable-hide {
+    display: none;
+  }
+}
+
+td.footable-editing {
+  max-width: 70px;
+  width: 70px;
+}

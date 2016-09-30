@@ -1,0 +1,1 @@
+exports[`Logo should render properly 1`] = `"<div class="app__logo"><span class="isvg failed app__logo__large"></span><span class="isvg failed app__logo__icon"></span></div>"`;

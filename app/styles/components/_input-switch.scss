@@ -1,0 +1,49 @@
+.u-switch {
+  cursor: pointer;
+  height: 14px;
+  position: relative;
+  user-select: none;
+  vertical-align: middle;
+  width: 24px;
+
+  input {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .track {
+    background-color: #ccc;
+    border-radius: 7px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .button {
+    background-color: #fff;
+    border-radius: 9px;
+    bottom: 2px;
+    left: 3px;
+    position: absolute;
+    right: 11px;
+    top: 2px;
+    transition: all 100ms ease;
+  }
+
+  &.is-checked {
+    .track {
+      background-color: lighten($brand-primary, 10%);
+    }
+
+    .button {
+      left: 11px;
+      right: 2px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.btn-black {
+  @include button-variant(#fff, #000, #000);
+}
+
+.btn-icon {
+  align-items: center;
+  display: inline-flex;
+  line-height: 1;
+
+  span {
+    font-weight: 700;
+    margin-left: $grid-gutter-width / 6;
+    text-transform: uppercase;
+  }
+}
+
+.label {
+  @extend .tag;
+
+  &-default {
+    @extend .tag-default;
+  }
+}
+
+.pagination {
+  > li {
+    @extend .page-item;
+
+    &.active {
+      a {
+        background-color: $brand-primary;
+        color: #fff;
+      }
+    }
+
+    > a {
+      @extend .page-link;
+    }
+  }
+}

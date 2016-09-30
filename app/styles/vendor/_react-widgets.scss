@@ -1,0 +1,74 @@
+$rw-font-path: '~react-widgets/lib/fonts';
+$rw-img-path: '~react-widgets/lib/img';
+
+@import '../../../node_modules/react-widgets/lib/scss/react-widgets';
+
+.rw-multiselect-wrapper {
+  display: flex;
+}
+
+.rw-multiselect-taglist {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    background-color: lighten($brand-primary, 45);
+    border: 0.1rem solid lighten($brand-primary, 40);
+    border-radius: 0.2rem;
+    color: $brand-primary;
+    line-height: 1;
+    margin: $grid-gutter-width / 6;
+    padding: $grid-gutter-width / 6;
+
+    span {
+      display: inline-block;
+      margin-left: $grid-gutter-width / 6;
+    }
+  }
+}
+
+.rw-multiselect.rw-widget[name=categories] {
+  .rw-multiselect-taglist li {
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+    color: #fff;
+  }
+}
+
+.rw-multiselect.rw-widget[name=files] {
+  .rw-multiselect-taglist li {
+    background-color: #fff;
+    border-color: #ccc;
+    color: $body-color;
+    position: relative;
+
+    > div {
+      align-items: center;
+      display: flex;
+      height: 12.8rem;
+      justify-content: center;
+      width: 12.8rem;
+    }
+
+    img {
+      max-height: 12.8rem;
+      max-width: 12.8rem;
+      vertical-align: top;
+    }
+
+    > span {
+      font-size: $font-size-h2;
+      opacity: 0.1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      > span {
+        opacity: 1;
+      }
+    }
+  }
+}

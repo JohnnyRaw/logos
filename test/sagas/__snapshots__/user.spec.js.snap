@@ -1,0 +1,113 @@
+exports[`user login saga 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "github"
+    ],
+    "context": null,
+    "fn": [Function mockConstructor]
+  }
+}
+`;
+
+exports[`user login saga 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [],
+    "context": null,
+    "fn": [Function mockConstructor]
+  }
+}
+`;
+
+exports[`user login saga 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "payload": Object {
+        "authenticated": true,
+        "credential": Object {},
+        "data": Object {
+          "displayName": undefined,
+          "email": undefined,
+          "photoURL": undefined,
+          "refreshToken": undefined,
+          "uid": undefined
+        }
+      },
+      "type": "USER_LOGIN_SUCCESS"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user login saga 4`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "payload": Object {
+        "args": Array [
+          Object {
+            "pathname": "/cms",
+            "search": undefined,
+            "state": undefined
+          }
+        ],
+        "method": "push"
+      },
+      "type": "@@router/CALL_HISTORY_METHOD"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user logout saga 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [],
+    "context": null,
+    "fn": [Function mockConstructor]
+  }
+}
+`;
+
+exports[`user logout saga 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "type": "USER_LOGOUT_SUCCESS"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user logout saga 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "payload": Object {
+        "args": Array [
+          Object {
+            "pathname": "/",
+            "search": undefined,
+            "state": undefined
+          }
+        ],
+        "method": "push"
+      },
+      "type": "@@router/CALL_HISTORY_METHOD"
+    },
+    "channel": null
+  }
+}
+`;

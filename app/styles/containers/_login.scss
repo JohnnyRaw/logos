@@ -1,0 +1,22 @@
+.app__login {
+  .app__container {
+    position: relative;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - #{$main-padding});
+    justify-content: center;
+
+    > div {
+      font-size: $font-size-h3;
+      margin-top: $grid-gutter-width;
+    }
+
+    a + a {
+      margin-top: $grid-gutter-width / 2;
+    }
+  }
+}
